@@ -1,47 +1,15 @@
-# A brief overview of VQE
+## Introduction
 
-::: {.meta}
-:property=\"og:description\": Find the ground state of a Hamiltonian
-using the variational quantum eigensolver algorithm.
-:property=\"og:image\":
-<https://pennylane.ai/qml/_static/demonstration_assets//pes_h2.png>
-:::
+In this study, we performed a quantum algorithm to find the ground state of protocatechuic acid (PCA), derived from benzoic acid and characterized by the molecular formula $C_{7}H_{6}O_{4}$ with chemical name 3,4-dihydroxybenzoic acid. 
 
-::: {.related}
-tutorial_quantum_chemistry Building molecular Hamiltonians
-vqe_parallel VQE with parallel QPUs with Rigetti tutorial_vqe_qng
-Accelerating VQE with quantum natural gradient
-tutorial_vqe_spin_sectors VQE in different spin sectors tutorial_vqt
-Variational quantum thermalizer
-:::
+We are based on the study carried out by Wassil Sennane, Jean-Philip Piquemal, and Marko J. Rančić,  "Calculating the Ground State Energy of Benzene Under Spatial Deformations with Noisy Quantum Computing". For more details, refer to the full article available in the link below.
 
-_Author: Alain Delgado --- Posted: 08 February 2020. Last updated: 29
-August 2023._
+[![arXiv](https://img.shields.io/badge/arXiv-2406.00280-b31b1b.svg)](https://arxiv.org/abs/2203.05275v2)
 
-The Variational Quantum Eigensolver (VQE) is a flagship algorithm for
-quantum chemistry using near-term quantum computers. It is an
-application of the [Ritz variational
-principle](https://en.wikipedia.org/wiki/Ritz_method), where a quantum
-computer is trained to prepare the ground state of a given molecule.
 
-The inputs to the VQE algorithm are a molecular Hamiltonian and a
-parametrized circuit preparing the quantum state of the molecule. Within
-VQE, the cost function is defined as the expectation value of the
-Hamiltonian computed in the trial state. The ground state of the target
-Hamiltonian is obtained by performing an iterative minimization of the
-cost function. The optimization is carried out by a classical optimizer
-which leverages a quantum computer to evaluate the cost function and
-calculate its gradient at each optimization step.
 
-In this tutorial you will learn how to implement the VQE algorithm in a
-few lines of code. As an illustrative example, we use it to find the
-ground state of the hydrogen molecule, $\mathrm{H}_2$. First, we build
-the molecular Hamiltonian using a minimal basis set approximation. Next,
-we design the quantum circuit preparing the trial state of the molecule,
-and the cost function to evaluate the expectation value of the
-Hamiltonian. Finally, we select a classical optimizer, initialize the
-circuit parameters, and run the VQE algorithm using a PennyLane
-simulator.
+## Notebooks
+For the simulations carried out in this work, five HE ansatz circuits were considered. The first three are ansatz (v1, v2, v3) used in reference (Sennane et al., 2022) to calculate the ground state of benzene molecule. The V4 was proposed considering changes in the rotations of the ansatz V1. The v5 is a ansatz proposed in this work considering the coupling of qubits in the HOMO layer.
 
 
 
