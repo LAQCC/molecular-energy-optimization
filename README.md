@@ -4,7 +4,7 @@ In this study, we performed a quantum algorithm to find the ground state of prot
 
 We are based on the study carried out by Wassil Sennane, Jean-Philip Piquemal, and Marko J. Rančić,  "Calculating the Ground State Energy of Benzene Under Spatial Deformations with Noisy Quantum Computing". For more details, refer to the full article available in the link below.
 
-[![PhysRevA](https://img.shields.io/badge/PhysRevA-2406.00280-b31b1b.svg)](https://doi.org/10.1103/PhysRevA.107.012416)
+[![PhysRevA](https://img.shields.io/badge/PhysRevA-107.012416-b31b1b.svg)](https://doi.org/10.1103/PhysRevA.107.012416)
 
 
 
