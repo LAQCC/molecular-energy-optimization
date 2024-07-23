@@ -13,7 +13,7 @@ For the simulations carried out in this work, five HE ansatz circuits were consi
 
 
 
-## Referência
+## Reference
 
 Sennane, W., Piquemal, J.-P., & Rančić, M. J. (2022). Calculating the Ground State Energy of Benzene Under Spatial Deformations with Noisy Quantum Computing. *TotalEnergies* e *Laboratoire de Chimie Théorique, Sorbonne Université, UMR7616 CNRS*. [arXiv:2203.05275v2](https://arxiv.org/abs/2203.05275v2)
 
