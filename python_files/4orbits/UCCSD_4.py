@@ -43,7 +43,7 @@ opt = optax.sgd(learning_rate=0.5)
 
 import numpy as np
 
-theta = np.random.normal(0, np.pi, len(singles) + len(doubles))
+theta = np.random.normal(0, 0, len(singles) + len(doubles))
 
 #theta = np.array(0.)
 

@@ -90,7 +90,7 @@ for n in range(max_iterations):
 print("\n" f"Final value of the ground-state energy = {energy[-1]:.8f} Ha")
 
 
-theta = np.random.normal(0, np.pi, qubits)
+theta = np.random.normal(0, 0, qubits)
 # store the values of the cost function
 energy = [cost_fn(theta)]
 
