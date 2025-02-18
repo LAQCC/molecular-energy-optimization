@@ -10,10 +10,10 @@ jax.config.update('jax_enable_x64', True)
 import pennylane as qml
 import pickle
 
-with open('qubits_acai_4.pkl', 'rb') as file:
+with open('/data/4-orbits/qubits_acai_4.pkl', 'rb') as file:
     qubits = pickle.load(file)
     
-with open('H_acai_4.pkl', 'rb') as fp:
+with open('/data/4-orbits/H_acai_4.pkl', 'rb') as fp:
     H = pickle.load(fp) 
 print("Number of qubits = ", qubits)
 
@@ -68,8 +68,8 @@ for n in range(max_iterations):
     if n % 2 == 0:
         print(f"Step = {n},  Energy = {energy[-1]:.8f} Ha")
 
-    if conv <= conv_tol:
-        break
+    # if conv <= conv_tol:
+    #     break
 
 print("\n" f"Final value of the ground-state energy = {energy[-1]:.8f} Ha")
 # print("\n" f"Optimal value of the circuit parameter = {angle[-1]:.4f}")

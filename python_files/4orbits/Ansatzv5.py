@@ -6,10 +6,10 @@ jax.config.update('jax_enable_x64', True)
 import pennylane as qml
 import pickle
 
-with open('qubits_acai_4.pkl', 'rb') as file:
+with open('/data/4-orbits/qubits_acai_4.pkl', 'rb') as file:
     qubits = pickle.load(file)
     
-with open('H_acai_4.pkl', 'rb') as fp:
+with open('/data/4-orbits/H_acai_4.pkl', 'rb') as fp:
     H = pickle.load(fp) 
 print("Number of qubits = ", qubits)
 

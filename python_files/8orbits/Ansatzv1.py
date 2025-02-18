@@ -11,14 +11,17 @@ import pickle
 import optax
 import numpy as np
 
+import warnings
+warnings.filterwarnings("ignore")
+
 jax.config.update("jax_platform_name", "cpu")
 jax.config.update('jax_enable_x64', True)
 
 
-with open('qubits_acai_8.pkl', 'rb') as file:
+with open('/data/8-orbits/qubits_acai_8.pkl', 'rb') as file:
     qubits = pickle.load(file)
     
-with open('H_acai_8.pkl', 'rb') as fp:
+with open('/data/8-orbits/H_acai_8.pkl', 'rb') as fp:
     H = pickle.load(fp) 
 print("Number of qubits = ", qubits)
 

@@ -15,10 +15,10 @@ jax.config.update("jax_platform_name", "cpu")
 jax.config.update('jax_enable_x64', True)
 
 
-with open('/data/6-orbits/qubits_acai_6.pkl', 'rb') as file:
+with open('/data/4-orbits/qubits_acai_4.pkl', 'rb') as file:
     qubits = pickle.load(file)
     
-with open('/data/6-orbits/H_acai_6.pkl', 'rb') as fp:
+with open('/data/4-orbits/H_acai_4.pkl', 'rb') as fp:
     H = pickle.load(fp) 
 print("Number of qubits = ", qubits)
 
@@ -31,13 +31,27 @@ print(hf)
 @qml.qnode(dev)
 def circuit(param, wires):
     qml.BasisState(hf, wires=wires)
+    #Apply Hadamard to HOMO and LUMO
     for i in range(electrons*2):
         qml.Hadamard(wires=i)
+    
+    #Apply RY to HOMO and LUMO
     for i in range(electrons*2):
-        qml.RY(param[i], wires=i)  
+        qml.RY(param[i], wires=i)
+    
+    #Apply RX to HOMO and LUMO
+    for i in range(electrons*2):
+        qml.RX(param[i+electrons*2], wires=i)
         
-    for i in range (int(electrons/2)):
-        qml.CNOT(wires=[i, i+ int(electrons/2)])
+    for i in range(electrons*2 -1):
+        #Apply CNOT
+        qml.CNOT(wires=[i,i+1])
+        
+        qml.RY(param[electrons*4+i], wires=i)
+        qml.RX(param[electrons*4+i+qubits-2], wires=i)
+        
+        qml.RY(param[electrons*4 + 2*(qubits-2) + i], wires=i+1)
+        qml.RX(param[electrons*4+ 3*(qubits-2) + i], wires=i+1)
     
     return qml.expval(H)
 
@@ -52,8 +66,8 @@ opt = optax.sgd(learning_rate=0.5)
 
 import numpy as np
 
+theta = np.array(np.full(2*(3*qubits-2), 0.))
 
-theta = np.full(qubits, 0.)
 # store the values of the cost function
 energy = [cost_fn(theta)]
 
@@ -81,7 +95,6 @@ for n in range(max_iterations):
 
 print("\n" f"Final value of the ground-state energy = {energy[-1]:.8f} Ha")
 
-
 # Crie um DataFrame vazio
 df = pd.DataFrame(columns=['step', 'energy'])
 
@@ -90,4 +103,4 @@ df['step'] = array_pares = np.arange(0, n+2)
 df['energy'] = energy
 
 # Salvar o DataFrame em um arquivo CSV
-df.to_csv('VQE-teste2_HE-1000.csv', index=False)
+df.to_csv('VQE-3_HE-1000.csv', index=False)
